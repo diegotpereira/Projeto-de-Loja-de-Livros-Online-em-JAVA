@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,11 +58,11 @@
         </tr>
         <tr>
             <td>
-                <a href=""></a> &nbsp;&nbsp;
-                <a href=""></a> &nbsp;&nbsp;
-                <a href=""></a> &nbsp;&nbsp;
-                <a href=""></a> &nbsp;&nbsp;
-                <a href=""></a> &nbsp;&nbsp;
+                <a href="">Alterar detalhes do usuário</a> &nbsp;&nbsp;
+                <a href="">Procurar livros</a> &nbsp;&nbsp;
+                <a href="">Livros de consulta</a> &nbsp;&nbsp;
+                <a href="">Histórico de pedidos</a> &nbsp;&nbsp;
+                <a href="">Sair</a> &nbsp;&nbsp;
             </td>
         </tr>
     </table>

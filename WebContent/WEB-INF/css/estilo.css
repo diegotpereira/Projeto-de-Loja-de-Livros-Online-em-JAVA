@@ -1,3 +1,25 @@
+body {
+    background-color: beige;
+}
+
+td {
+    font: 10pt verdana
+ }
+
+ th {
+    font: 700 10pt verdana
+ }
+
+ h2 {
+    font: 700 16pt arial
+ }
+
+ a {
+    font: 700 10pt verdana;
+    color: darkgreen
+ }
+
+
 #tabela1 {
     border: 1;
     width: 100%;
