@@ -7,39 +7,41 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <table>
-        <tr>
+    <table id="tabela1">
+        <tr style="font:700 11pt verdana;background-color:green;color:white">
             <td>
                 bem vindo <b></b>
             </td>
         </tr>
-        <tr>
+        <tr style="font:10pt verdana">
             <td>
                 <h2>Carrinho de Compras</h2>
-                <table>
+                <table width="100%" id="tabela2">
                     <tr>
-                        <td>
+                        <td width="100%">
                             <form action="">
-                                <tr>
-                                    <th>Titulo do Livro</th>
-                                    <th>Preço</th>
-                                    <th>Quantidade</th>
-                                    <th>Quantidade</th>
-                                    <th>&nbsp</th>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <input type="hidden">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Remove</td>
-                                </tr>
-                                <tr>
-                                    <td colspan=5 style="text-align:center;font:700 12pt verdana;color:navy">
-                                        Valor total
-                                    </td>
-                                </tr>
+                                <table id="tabela3">
+                                    <tr>
+                                        <th>Titulo do Livro</th>
+                                        <th>Preço</th>
+                                        <th>Quantidade</th>
+                                        <th>Quantidade</th>
+                                        <th>&nbsp</th>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <input type="hidden">
+                                        <td id="tdDireito"></td>
+                                        <td id="tdCentro"></td>
+                                        <td id="tdDireito"></td>
+                                        <td id="tdCentro">Remove</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan=5 style="text-align:center;font:700 12pt verdana;color:navy">
+                                            Valor total
+                                        </td>
+                                    </tr>
+                                </table>
                             </form>
                         </td>
                     </tr>

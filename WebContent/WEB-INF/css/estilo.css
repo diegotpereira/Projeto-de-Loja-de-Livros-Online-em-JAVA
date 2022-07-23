@@ -1,0 +1,13 @@
+#tabela1 {
+    border: 1;
+    width: 100%;
+}
+#tabela3 {
+    border: 1;
+}
+#tdDireito {
+    align-items:"center";
+}
+#tdCentro {
+    align-items: center;
+}
