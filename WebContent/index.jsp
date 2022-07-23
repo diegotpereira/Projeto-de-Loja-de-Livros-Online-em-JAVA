@@ -28,16 +28,19 @@
                                         <th>Titulo do Livro</th>
                                         <th>Preço</th>
                                         <th>Quantidade</th>
-                                        <th>Quantidade</th>
+                                        <th>Total</th>
                                         <th>&nbsp</th>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <input type="hidden">
-                                        <td id="tdDireito"></td>
-                                        <td id="tdCentro"></td>
-                                        <td id="tdDireito"></td>
-                                        <td id="tdCentro">Remove</td>
+                                        <td align="right"></td>
+                                        <td align="center"></td>
+                                        <input type="text" name="" id="">
+                                        <td align="right"></td>
+                                        <td align="center">
+                                            <a href="">Remover</a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan=5 style="text-align:center;font:700 12pt verdana;color:navy">
