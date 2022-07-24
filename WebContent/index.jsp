@@ -34,11 +34,11 @@
                                     <tr>
                                         <td></td>
                                         <input type="hidden">
-                                        <td align="right"></td>
-                                        <td align="center"></td>
+                                        <td id="tdDireito"></td>
+                                        <td id="tdCentro"></td>
                                         <input type="text" name="" id="">
-                                        <td align="right"></td>
-                                        <td align="center">
+                                        <td id="tdDireito"></td>
+                                        <td id="tdCentro">
                                             <a href="">Remover</a>
                                         </td>
                                     </tr>
