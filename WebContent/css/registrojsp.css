@@ -1,0 +1,12 @@
+body {
+    background-color: wheat;
+    align-items: center;
+}
+h3 {
+    font: 700 12pt verdana;
+    color: maroon;
+}
+a {
+    font: 12pt verdana;
+    color: navy;
+}
