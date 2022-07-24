@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="br.com.java.model.Usuario"%>
+<%@page import="br.com.java.dao.UsuarioDao"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,17 +11,25 @@
     <link rel="stylesheet" href="css/registrojsp.css">
 </head>
 <body>
-    <jsp:useBean id="usuario" class="obs.user" scope="session" />
-    <jsp:setProperty  name="usuario" property="*" />
+    
 
     <% 
+    
+    try {
+    	Usuario ObjLivroDTO = new Usuario();
+        
+        
+    	UsuarioDao  objLivroDAO = new UsuarioDao();
+        objLivroDAO.registrarUsuario(ObjLivroDTO);
+        
+		
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+    
 
-    String resultado = usuario.registrarUsuario()
-
-    if(resultado == null) 
-        response.sendRedirect("home.jsp");
-    else 
-      out.println("<h3>Desculpe! Falha no registro com erro: <p> " + resultado + </p>"</h3> <p><a href=register.html>Tente novamente </a> "</p> ")
+  
     %>
 </body>
 </html>
