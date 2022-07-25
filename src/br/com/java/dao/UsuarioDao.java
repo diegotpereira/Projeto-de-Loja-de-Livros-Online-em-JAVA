@@ -81,18 +81,20 @@ public class UsuarioDao {
         return status;
     }
   
-    public static void login() {
+    public static void login(Usuario usuario) {
 
-        Usuario usuario = null;
-        String SQL = "select usuarioid,email,telefone,endereco from usuarios where uname = ? and pwd= ?";
+        // Usuario usuario = null;
+        String SQL = "select usuarioid,email,telefone,endereco from usuarios where unome = ? and pwd= ?";
         PreparedStatement pstm;
 
         try {
             pstm = DbConnect.getConexao().prepareStatement(SQL);
-            pstm.setString(1,usuario.getUnome());
+            pstm.setString(1, usuario.getUnome());
             pstm.setString(2, usuario.getPwd());
 
             ResultSet rs = pstm.executeQuery();
+
+            usuario.setLogado(false);
 
             if (rs.next()) {
                 int usuarioid = rs.getInt("usuarioid");
@@ -100,7 +102,7 @@ public class UsuarioDao {
                 String endereco = rs.getString("endereco");
                 String telefone = rs.getString("telefone");
 
-                boolean logado = true;
+                usuario.setLogado(true);
                 
             }
 
@@ -110,7 +112,9 @@ public class UsuarioDao {
         } finally {
             //limpar(con, ps);
         }
-
+    }
+    public boolean estaLogado(boolean logado) {
+        return logado;
     }
     public  void limpar(Connection con, PreparedStatement ps)
     { 

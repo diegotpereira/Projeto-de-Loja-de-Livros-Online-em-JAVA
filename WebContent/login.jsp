@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,15 +13,14 @@
    <jsp:setProperty name="usuario" property="*" />
 
    <%
-
-      UsuarioDao.login();
-      if(!usuario.isLogado())
+      UsuarioDao.login(usuario);
+      if(!usuario.isLogado()) {
    %>
-   <h3>Longin InvÃ¡lido. Clique <a href="login.html">aqui</a> e tente novamente!</h3>
-   <% 
-      else
-
-         response.sendRedirect("home.jsp");
+   <h3>Login Inválido. Clique <a href="login.html">aqui</a> e tente novamente!</h3>
+   <%
+      }else {
+         response.sendRedirect("index.jsp");
+      }
    %>
 </body>
 </html>
