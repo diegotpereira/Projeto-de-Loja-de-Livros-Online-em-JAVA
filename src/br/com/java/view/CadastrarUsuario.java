@@ -1,12 +1,12 @@
 package br.com.java.view;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import br.com.java.dao.UsuarioDao;
 import br.com.java.model.Usuario;
 
 @WebServlet(name = "CadastrarUsuario", urlPatterns = {"/cadastrarusuario"})
@@ -16,7 +16,7 @@ public class CadastrarUsuario extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = getServletContext()
-                .getRequestDispatcher("/registro.jsp");
+                .getRequestDispatcher("/registro.html");
         dispatcher.forward(request, response);
     }
 
@@ -24,27 +24,27 @@ public class CadastrarUsuario extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          System.out.println("POST - CADASTRAR USUARIO");
-        Usuario u = new Usuario();
-   
-        u.setU(request.getParameter("uname"));
-        u.setSenha(request.getParameter("senha"));
-        u.setNome(request.getParameter("nome"));
-        u.setCpf(request.getParameter("cpf"));
-        u.setTelefone(request.getParameter("telefone"));
-        u.setEndereco(request.getParameter("endereco"));
+        Usuario usuario = new Usuario();
+        
+        usuario.setUnome(request.getParameter("unome"));
+        usuario.setPwd(request.getParameter("pwd"));
+        usuario.setEmail(request.getParameter("email"));
+        usuario.setEndereco(request.getParameter("endereco"));
+        usuario.setTelefone(request.getParameter("telefone"));
+        //// Boolean.parseBoolean(request.getParameter("logado"));
+        
+        UsuarioDao dao = new UsuarioDao();
 
-        UsuarioDAO dao = new UsuarioDAO();
-
-        if (dao.cadastraUsuario(u)) {
-            request.setAttribute("usuario", u);
+        if (dao.registrarUsuario(usuario)) {
+            request.setAttribute("usuario", usuario);
             HttpSession ses = request.getSession();
-            ses.setAttribute("usuario",u);
+            ses.setAttribute("usuario", usuario);
         } else {
             //enviar um atributo msg de erro
             request.setAttribute("erro", "Usuário ou senha inválida!");
         }
         
-        response.sendRedirect("listarprodutos");
+        response.sendRedirect("index.jsp");
 
     }
 }

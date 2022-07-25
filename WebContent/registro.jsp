@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<%@page import="br.com.java.model.Usuario"%>
 <%@page import="br.com.java.dao.UsuarioDao"%>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="css/registrojsp.css">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
-    
-
-    <% 
-    
-    try {
-    	Usuario ObjLivroDTO = new Usuario();
-        
-        
-    	UsuarioDao  objLivroDAO = new UsuarioDao();
-        objLivroDAO.registrarUsuario(ObjLivroDTO);
-        
-		
-		
-	} catch (Exception e) {
-		// TODO: handle exception
-	}
-    
-
-  
-    %>
+     <jsp:useBean id="usuario" class="br.com.java.model.Usuario" scope="session" />
+     <jsp:setProperty  name="usuario" property="*" />
+     
+     <% int i = UsuarioDao.salvarUsuario(usuario); 
+     
+     if (i > 0) 
+         response.sendRedirect("index.jsp"); 
+     else
+         out.println("<h3>Sorry! Registration Failed With Error : <p> " + i + "</h3> <p> <a href=register.html>Try Again </a> ");
+     %>
 </body>
 </html>

@@ -13,7 +13,7 @@ public class DbConnect {
             String mydatabase = "Loja_Online_crud_java_web_jsp_mysql";
             String username = "root";
             String password = "root";
-            String driverName = "com.mysql.jdbc.Driver";
+            String driverName = "com.mysql.jdbc.Driver";	
             Class.forName(driverName);
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
             con = DriverManager.getConnection(url, username, password);
