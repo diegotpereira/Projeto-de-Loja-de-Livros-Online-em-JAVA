@@ -1,12 +1,27 @@
+<%@page import="br.com.java.dao.UsuarioDao"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
-    
+   <jsp:useBean id="usuario" class="br.com.java.model.Usuario" scope="session" />
+
+   <jsp:setProperty name="usuario" property="*" />
+
+   <%
+
+      UsuarioDao.login();
+      if(!usuario.isLogado())
+   %>
+   <h3>Longin Inválido. Clique <a href="login.html">aqui</a> e tente novamente!</h3>
+   <% 
+      else
+
+         response.sendRedirect("home.jsp");
+   %>
 </body>
 </html>

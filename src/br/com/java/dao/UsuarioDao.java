@@ -80,6 +80,38 @@ public class UsuarioDao {
         }
         return status;
     }
+  
+    public static void login() {
+
+        Usuario usuario = null;
+        String SQL = "select usuarioid,email,telefone,endereco from usuarios where uname = ? and pwd= ?";
+        PreparedStatement pstm;
+
+        try {
+            pstm = DbConnect.getConexao().prepareStatement(SQL);
+            pstm.setString(1,usuario.getUnome());
+            pstm.setString(2, usuario.getPwd());
+
+            ResultSet rs = pstm.executeQuery();
+
+            if (rs.next()) {
+                int usuarioid = rs.getInt("usuarioid");
+                String email = rs.getString("email");
+                String endereco = rs.getString("endereco");
+                String telefone = rs.getString("telefone");
+
+                boolean logado = true;
+                
+            }
+
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println(e);
+        } finally {
+            //limpar(con, ps);
+        }
+
+    }
     public  void limpar(Connection con, PreparedStatement ps)
     { 
       try
