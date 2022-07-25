@@ -77,8 +77,8 @@
         <tr>
             <td>
                 [<a href="">Alterar detalhes do usuário</a>] &nbsp;&nbsp;
-                [<a href="">Procurar livros</a>] &nbsp;&nbsp;
-                [<a href="">Livros de consulta</a>] &nbsp;&nbsp;
+                [<a href="navegacaoLivros.jsp">Procurar livros</a>] &nbsp;&nbsp;
+                [<a href="consultaLivro.jsp">Livros de consulta</a>] &nbsp;&nbsp;
                 [<a href="">Histórico de pedidos</a>] &nbsp;&nbsp;
                 [<a href="">Sair</a>]
             </td>

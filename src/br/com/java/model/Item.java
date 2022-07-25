@@ -9,6 +9,15 @@ public class Item implements Serializable{
     private int preco;
     private int qtd;
 
+    
+
+    public Item(String isbn, String titulo, int preco, int qtd) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.preco = preco;
+        this.qtd = 1;
+    }
+
     public String getIsbn() {
         return isbn;
     }
