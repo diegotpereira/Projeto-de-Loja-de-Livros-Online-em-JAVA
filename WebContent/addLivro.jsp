@@ -12,10 +12,10 @@
 </head>
 <body>
     <%
-      //<!-- verifique se o usuário fez login, caso contrário, envie o usuário para a página de login -->
+      //<!-- verifique se o usu�rio fez login, caso contrário, envie o usu�rio para a p�gina de login -->
       out.println(usuario.isLogado());
 
-      if(usuario.isLogado())
+      if(!usuario.isLogado())
         response.sendRedirect("login.html");
 
         //<!-- ler dados sobre o item -->
@@ -23,7 +23,7 @@
 
         carrinho.adicionarItem(isbn);
 
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("index.jsp");
     %>
 </body>
 </html>

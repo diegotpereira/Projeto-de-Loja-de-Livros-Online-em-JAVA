@@ -1,3 +1,4 @@
+<%@page import="br.com.java.connection.DbConnect"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%@page import="java.sql.*" %>
@@ -14,6 +15,14 @@
 
     <%
        String pedidoid = request.getParameter("pedidoid");
+       String status = request.getParameter("status");
+       String SQL = "SELECT oi.isbn, titulo, oi.preco, qtd, oi.preco * qtv quantia FROM pedidoitem oi, livros b WHERE b.isbn = oi.isbn and pedidoid = " + pedidoid;
+       
+       Connection con = DbConnect.getConexao();
+       Statement st = con.createStatement();
+       ResultSet rs = st.executeQuery(SQL);
+       
+       
     %>
     <table>
         <tr>
@@ -45,6 +54,7 @@
             </tr>
 
         <%
+        }
            rs.close();
            st.close();
            con.close();

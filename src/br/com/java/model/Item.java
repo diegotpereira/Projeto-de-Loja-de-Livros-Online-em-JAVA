@@ -11,7 +11,7 @@ public class Item implements Serializable{
 
     
 
-    public Item(String isbn, String titulo, int preco, int qtd) {
+    public Item(String isbn, String titulo, int preco) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.preco = preco;
@@ -48,5 +48,8 @@ public class Item implements Serializable{
 
     public void setQtd(int qtd) {
         this.qtd = qtd;
+    }
+    public void addQtd(int qtd) {
+        this.qtd += qtd;
     }
 }
