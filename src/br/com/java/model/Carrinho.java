@@ -2,8 +2,17 @@ package br.com.java.model;
 
 import java.sql.*;
 import java.util.*;
-import javax.naming.*;
+
 import javax.ejb.*;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.naming.spi.InitialContextFactory;
+import javax.naming.spi.InitialContextFactoryBuilder;
+import javax.naming.spi.NamingManager;
+import javax.sql.DataSource;
+
 
 import br.com.java.connection.DbConnect;
 
@@ -101,21 +110,106 @@ public class Carrinho {
 
 		return false;
 	}
-	public Context getInitialContext() {
+
+	public Context getInitialContext() 
+  {
+  
+  String JNDI_FACTORY="weblogic.jndi.WLInitialContextFactory";
+
+  try
+  {
+   Hashtable env = new Hashtable();
+   env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
+   env.put(Context.PROVIDER_URL,"t3://localhost:7001");
+   return new InitialContext(env);
+  }
+  catch(Exception ex)
+  { 
+    System.out.println(ex.getMessage()); 
+    return null;
+  }
+
+ }
+	// 	public Context getInitialContext() throws NamingException, SQLException {
+	// 		// private DataSource dataSource;
+
+			
+
+	// 		Context initContext = new InitialContext();
+	// 		Context envContext = (Context) initContext.lookup("java:comp/env");
+
+	// 		Connection conn = DbConnect.getConexao();
+	// 		DataSource ds = (DataSource) envContext.lookup("jdbc/Loja_Online_crud_java_web_jsp_mysql");
+	// 		conn = ds.getConnection();
 		
-		String JNDI_FACTORY="weblogic.jndi.WLInitialContextFactory";
+			
 
-		try {
-			Hashtable env = new Hashtable();
-			env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
-			env.put(Context.PROVIDER_URL, "t3://localhost:7001");
+			
+	// 		//setupInitialContext();
+	// 		// String JNDI_FACTORY="java:comp/env";
 
-			return new InitialContext(env);
-		} catch (Exception e) {
-			//TODO: handle exception
-			System.out.println(e.getMessage());
+	// 		// try {
+	// 		// 	Hashtable env = new Hashtable();
+	// 		// 	// Hashtable<String, String> env = new Hashtable<String, String>(); 
+	// 		// 	env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
+	// 		// 	env.put(Context.PROVIDER_URL, "t3://localhost:7001");
+	// 		// 	// env.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory"); 
+	// 		//     // env.put("java.naming.provider.url", "jnp://localhost:1099"); 
+	// 		//     // env.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
 
-			return null;
-		}
-	}
+	// 		// 	return new InitialContext(env);
+	// 		// } catch (Exception e) {
+	// 		// 	//TODO: handle exception
+	// 		// 	System.out.println(e.getMessage());
+
+	// 			return null;
+	// 		// }
+	// 	}
+	// 	private static void setupInitialContext() {
+	// 		try {
+	// 			NamingManager.setInitialContextFactoryBuilder(new InitialContextFactoryBuilder() {
+		
+	// 				@Override
+	// 				public InitialContextFactory createInitialContextFactory(Hashtable<?, ?> environment) throws NamingException {
+	// 					return new InitialContextFactory() {
+		
+	// 						@Override
+	// 						public Context getInitialContext(Hashtable<?, ?> environment) throws NamingException {
+	// 							return new InitialContext(){
+		
+	// 								private Hashtable<String, DataSource> dataSources = new Hashtable<>();
+		
+	// 								@Override
+	// 								public Object lookup(String name) throws NamingException {
+		
+	// 									if (dataSources.isEmpty()) { //init datasources
+
+	// 										DbConnect ds = new DbConnect();
+	// 										// DbConnect ds = new DbConnect();
+	// 										// ds.setURL("jdbc:mysql://localhost:3306/mydb");
+	// 										// ds.setUser("mydbuser");
+	// 										// ds.setPassword("mydbpass");
+	// 										dataSources.put("jdbc/mydbname", (DataSource) ds);
+		
+	// 										//add more datasources to the list as necessary
+	// 									}
+		
+	// 									if (dataSources.containsKey(name)) {
+	// 										return dataSources.get(name);
+	// 									}
+		
+	// 									throw new NamingException("Unable to find datasource: "+name);
+	// 								}
+	// 							};
+	// 						}
+		
+	// 					};
+	// 				}
+		
+	// 			});
+	// 		}
+	// 		catch (NamingException ne) {
+	// 			ne.printStackTrace();
+	// 	}
+	// }
 }
