@@ -15,15 +15,14 @@
 <body>
     <h3>Lista de Livros</h3>
     <table>
-        <tr>
-            <th>&nbsp;</th>
-            <th>Nï¿½ de Sï¿½rie</th>
+        <tr style="background-color:green;color:beige;font:700 10pt verdana">
             <th>ISBN</th>
             <th>Titulo</th>
-            <th>Preï¿½o</th>
             <th>Autor</th>
+            <th>Preço</th>
             <th>Categoria</th>
             <th>Editora</th>
+            <th>Ação</th>
         </tr>
 
         <%
@@ -31,11 +30,13 @@
 
           if(cond == null) cond = "1=1";
 
-          String SQL = ("SELECT rownum, isbn, Titulo, autor, preco, cat, pub, FROM livros WHERE " + cond);
-          PreparedStatement pstm;
+          //String SQL = ("SELECT rownum, isbn, Titulo, autor, preco, cat, pub, FROM livros WHERE " + cond);
+          Connection con = DbConnect.getConexao();
           
-          pstm = DbConnect.getConexao().prepareStatement(SQL);
-          ResultSet rs = pstm.executeQuery();
+          Statement pstm = con.createStatement();
+          
+         
+          ResultSet rs = pstm.executeQuery("SELECT isbn, Titulo, autor, preco, cat, pub FROM livros WHERE " + cond);
 
           while(rs.next()) {
         	  
@@ -43,33 +44,30 @@
 
         <tr>
             <td>
-                <a href="addLivro.jsp?isbn=<%=rs.getString("isbn")%>>">Adicionar ao Carrinho</a>
-            </td>
-            <td>
                 <%=rs.getInt(1)%>
             </td>
             <td>
-                <%=rs.getInt(2)%>
+                <%=rs.getString(2)%>
             </td>
             <td>
-                <%=rs.getInt(3)%>
+                <%=rs.getString(3)%>
             </td>
             <td>
                 <%=rs.getInt(4)%>
             </td>
             <td>
-                <%=rs.getInt(5)%>
+                <%=rs.getString(5)%>
             </td>
             <td>
-                <%=rs.getInt(6)%>
+                <%=rs.getString(6)%>
             </td>
             <td>
-                <%=rs.getInt(7)%>
+                <a href="addLivro.jsp?isbn=<%=rs.getString("isbn")%>>">Adicionar ao Carrinho</a>
             </td>
         </tr>
         <%} rs.close();
             pstm.close();
-            //con.close();
+            con.close();
         %>
     </table>
 </body>

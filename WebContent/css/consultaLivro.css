@@ -1,0 +1,19 @@
+body {
+	background-color: beige;
+}
+
+h2 {
+	color: navy;
+	font: 700 20pt arial;
+}
+h4 {
+	color: brown;
+	font: 700 11pt verdana;
+}
+td {
+	font: 700 10pt verdana;
+}
+a {
+	font: 700 12pt verdana;
+    color: darkgreen;
+}

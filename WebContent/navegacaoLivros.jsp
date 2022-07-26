@@ -5,10 +5,12 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Insert title here</title>
+
+    <link rel="stylesheet" href="css/navegacaoLivros.css">
 </head>
 
 <body>
-    <h2>Procurar livros disponï¿½veis</h2>
+    <h2>Procurar livros disponíveis</h2>
     <form action="navegacaoLivros.jsp" method="post">
         Selecione a Categoria: 
         <select name="cat" id="">

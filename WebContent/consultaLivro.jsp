@@ -5,6 +5,8 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>Insert title here</title>
+
+    <link rel="stylesheet" href="css/consultaLivro.css">
 </head>
 
 <body>
@@ -21,15 +23,23 @@
 	                    <option value=".net">.Net</option>
 	                    <option value="java">Java</option>
 	                </select>
-	                Tï¿½tulo Contï¿½m
-	                <input type="text" name="titulo" id="titulo" size="20">
+	                <td>
+	                    Título Contém
+	                    <input type="text" name="titulo" id="titulo" size="20">
+	                </td>
             </tr>
             <tr>
                 <td>
-                    Nome do autor contï¿½m
+                    Nome do autor contém
                     <input type="text" name="autor" id="autor" size="10">
-                    Para Preï¿½o
-                    <input type="text" name="parapreco" id="" size="10">
+                </td>
+                <td>
+                    A partir de R$
+                    <input type="text" name="dopreco" id="dopreco" size="10">
+                </td>
+                <td>
+                    Até preço de R$ 
+                    <input type="text" name="parapreco" id="parapreco" size="10">
                 </td>
             </tr>
         </table>
@@ -57,7 +67,9 @@
            if(!dopreco.equals("")) cond = cond + " and preco >= " + dopreco;
         
       String parapreco = request.getParameter("parapreco");
-           if(!parapreco.equals("")) cond = cond + " and preco <= " + parapreco;     
+           if(!parapreco.equals("")) cond = cond + " and preco <= " + parapreco;
+        
+      request.setAttribute("cond", cond);
     %>
     <jsp:include page="listaLivro.jsp" flush="true" />
 </body>

@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*" %>
+
 
 <jsp:useBean id="usuario" scope="session" class="br.com.java.model.Usuario" />
+<jsp:useBean id="carrinho" scope="session" class="br.com.java.model.Carrinho" />
+
+<%@ page import="java.util.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,7 @@
                             <form action="">
                                 <table id="tabela3">
                                     <tr>
-                                        <th>Titulo do Livro</th>
+                                        <th>Título do Livro</th>
                                         <th>Preço</th>
                                         <th>Quantidade</th>
                                         <th>Total</th>
@@ -77,8 +81,8 @@
         <tr>
             <td>
                 [<a href="">Alterar detalhes do usuário</a>] &nbsp;&nbsp;
-                [<a href="navegacaoLivros.jsp">Procurar livros</a>] &nbsp;&nbsp;
-                [<a href="consultaLivro.jsp">Livros de consulta</a>] &nbsp;&nbsp;
+                [<a href="navegacaoLivros.jsp">Lista de Livros</a>] &nbsp;&nbsp;
+                [<a href="consultaLivro.jsp">Pesquisar Livros</a>] &nbsp;&nbsp;
                 [<a href="">Histórico de pedidos</a>] &nbsp;&nbsp;
                 [<a href="">Sair</a>]
             </td>
