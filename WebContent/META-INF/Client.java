@@ -11,7 +11,7 @@ public class Client {
 
   public static void main(String[] args) throws Exception 
   {
-    String url       = "t3://localhost:7001";
+    String url = "t3://localhost:7001";
 
     Properties h = new Properties();
     h.put(Context.INITIAL_CONTEXT_FACTORY,
