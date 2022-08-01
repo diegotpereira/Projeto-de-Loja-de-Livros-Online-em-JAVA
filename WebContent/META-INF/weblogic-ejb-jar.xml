@@ -7,6 +7,6 @@
 <weblogic-ejb-jar>
   <weblogic-enterprise-bean>
     <ejb-name>Pedido</ejb-name>
-    <jndi-name>br.com.java.model</jndi-name>
+    <jndi-name>br.com.java.model.Pedido</jndi-name>
   </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

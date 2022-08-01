@@ -91,9 +91,10 @@ public class Carrinho {
 	public String finalizarPedido(int usuarioid) {
 
 		try {
-			Context context = getInitialContext();
+			// InitialContext context = getInitialContext();
+			InitialContext context = new InitialContext();
 
-			PedidoPrincipal principal = (PedidoPrincipal) context.lookup("br.com.java.model.Pedido");
+			PedidoPrincipal principal = (PedidoPrincipal) context.lookup("java:comp/env");
 			Pedido pedido = principal.criar();
 
 			String id = pedido.addPedido(usuarioid, itens);
@@ -111,25 +112,25 @@ public class Carrinho {
 		return false;
 	}
 
-	public Context getInitialContext() 
-  {
+// 	public Context getInitialContext() 
+//   {
   
-  String JNDI_FACTORY="weblogic.jndi.WLInitialContextFactory";
+//   String JNDI_FACTORY="weblogic.jndi.WLInitialContextFactory";
 
-  try
-  {
-   Hashtable env = new Hashtable();
-   env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
-   env.put(Context.PROVIDER_URL,"t3://localhost:7001");
-   return new InitialContext(env);
-  }
-  catch(Exception ex)
-  { 
-    System.out.println(ex.getMessage()); 
-    return null;
-  }
+//   try
+//   {
+//    Hashtable env = new Hashtable();
+//    env.put(Context.INITIAL_CONTEXT_FACTORY, JNDI_FACTORY);
+//    env.put(Context.PROVIDER_URL,"t3://localhost:7001");
+//    return new InitialContext(env);
+//   }
+//   catch(Exception ex)
+//   { 
+//     System.out.println(ex.getMessage()); 
+//     return null;
+//   }
 
- }
+//  }
 	// 	public Context getInitialContext() throws NamingException, SQLException {
 	// 		// private DataSource dataSource;
 
